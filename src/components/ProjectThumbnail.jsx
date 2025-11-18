@@ -42,6 +42,9 @@ function ProjectThumbnail({ project }) {
           bottom: 0,
           left: 0,
           right: 0,
+          width: "100%", // Explicit width for iOS Safari
+          display: "block", // Ensure proper layout context
+          boxSizing: "border-box", // Include padding in width calculation
           borderRadius: 1,
           background:
             "linear-gradient(to top, rgba(26, 21, 34, 0.95) 0%, rgba(26, 21, 34, 0.8) 50%, transparent 100%)",
