@@ -42,6 +42,8 @@ function ProjectThumbnail({ project }) {
           borderRadius: 1,
           background:
             "linear-gradient(to top, rgba(26, 21, 34, 0.95) 0%, rgba(26, 21, 34, 0.8) 50%, transparent 100%)",
+          WebkitBackgroundImage:
+            "linear-gradient(to top, rgba(26, 21, 34, 0.95) 0%, rgba(26, 21, 34, 0.8) 50%, transparent 100%)", // Webkit prefix for iOS
           color: "primary.main",
           p: 2,
           paddingTop: 4,
