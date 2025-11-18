@@ -50,13 +50,12 @@ const theme = createTheme({
     MuiCard: {
       styleOverrides: {
         root: {
-          transform: "translateZ(0)", // GPU acceleration for Safari/iOS
-          transition: "box-shadow 0.3s ease, transform 0.3s ease",
+          willChange: "box-shadow", // GPU acceleration hint for Safari/iOS
+          transition: "box-shadow 0.3s ease",
           WebkitBoxShadow: "0px 0px 0px 0px transparent", // Webkit prefix for older iOS
           "&:hover": {
             boxShadow: "0px 10px 30px 0px rgba(224, 145, 204, 0.3)", // Explicit units for Safari
             WebkitBoxShadow: "0px 10px 30px 0px rgba(224, 145, 204, 0.3)",
-            transform: "translateZ(0) translateY(-2px)", // Subtle lift effect
           },
         },
       },
