@@ -16,6 +16,9 @@ function ProjectThumbnail({ project }) {
         aspectRatio: "1 / 1", // Creates a 1:1 aspect ratio
         textDecoration: "none",
         cursor: "pointer",
+        willChange: "transform", // GPU acceleration hint for iOS
+        backfaceVisibility: "hidden", // Improve rendering on iOS
+        WebkitBackfaceVisibility: "hidden", // Webkit prefix for iOS
       }}
     >
       {/* Static thumbnail image */}
