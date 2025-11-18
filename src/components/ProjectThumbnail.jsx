@@ -48,7 +48,8 @@ function ProjectThumbnail({ project }) {
           color: "primary.main",
           p: 2,
           paddingTop: 4,
-          WebkitTransform: "translateZ(0)", // Force GPU acceleration on iOS
+          backfaceVisibility: "hidden", // Helps with iOS rendering without affecting transforms
+          WebkitBackfaceVisibility: "hidden",
         }}
       >
         <Typography
