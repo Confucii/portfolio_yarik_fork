@@ -107,7 +107,7 @@ function CategorySection({ category, projects }) {
             onClick={scrollPrev}
             sx={{
               position: "absolute",
-              left: 0,
+              left: 15,
               top: "50%",
               transform: "translate(-50%, -50%)",
               zIndex: 10,
@@ -129,7 +129,7 @@ function CategorySection({ category, projects }) {
             onClick={scrollNext}
             sx={{
               position: "absolute",
-              right: 0,
+              right: 15,
               top: "50%",
               transform: "translate(50%, -50%)",
               zIndex: 10,
