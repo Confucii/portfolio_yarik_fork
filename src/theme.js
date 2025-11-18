@@ -4,7 +4,7 @@ const theme = createTheme({
   palette: {
     mode: "dark",
     primary: {
-      main: "#E091CC", // Pink accent color
+      main: "#FB6D48", // Pink accent color
       light: "#F0A1DC",
       dark: "#C080B0",
     },
@@ -18,7 +18,7 @@ const theme = createTheme({
       paper: "#332A3F",
     },
     text: {
-      primary: "#E091CC",
+      primary: "#FB6D48",
       secondary: "#B080A0",
     },
   },
