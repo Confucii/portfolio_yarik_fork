@@ -3,7 +3,6 @@ import { Box, Card, CardMedia, Typography } from "@mui/material";
 import { escapeProjectId } from "../utils/projectId";
 
 function ProjectThumbnail({ project }) {
-  // Use the project's thumbnail
   if (!project.thumbnail) return null;
 
   return (
@@ -13,15 +12,28 @@ function ProjectThumbnail({ project }) {
       sx={{
         position: "relative",
         width: "100%",
-        aspectRatio: "1 / 1", // Creates a 1:1 aspect ratio
+        aspectRatio: "1 / 1",
         textDecoration: "none",
         cursor: "pointer",
-        willChange: "transform", // GPU acceleration hint for iOS
-        backfaceVisibility: "hidden", // Improve rendering on iOS
-        WebkitBackfaceVisibility: "hidden", // Webkit prefix for iOS
+
+        // --- SAFARI-SAFE GRADIENT OVERLAY ---
+        "&::after": {
+          content: '""',
+          position: "absolute",
+          bottom: 0,
+          left: 0,
+          right: 0,
+          height: "25%", // gradient height (you asked for 25%)
+          borderRadius: 1,
+          pointerEvents: "none",
+
+          backgroundImage:
+            "linear-gradient(to top, rgba(26, 21, 34, 0.95), rgba(26, 21, 34, 0.8), rgba(26, 21, 34, 0))",
+          WebkitBackgroundImage:
+            "linear-gradient(to top, rgba(26, 21, 34, 0.95), rgba(26, 21, 34, 0.8), rgba(26, 21, 34, 0))",
+        },
       }}
     >
-      {/* Static thumbnail image */}
       <CardMedia
         component="img"
         image={`${import.meta.env.BASE_URL}${project.thumbnail}`}
@@ -30,27 +42,19 @@ function ProjectThumbnail({ project }) {
           width: "100%",
           height: "100%",
           objectFit: "cover",
-          borderRadius: 1, // Match Card's borderRadius to keep corners rounded
+          borderRadius: 1,
         }}
         loading="lazy"
       />
 
-      {/* Project title overlay */}
+      {/* TEXT OVERLAY — NOT SQUASHED ANYMORE */}
       <Box
         sx={{
           position: "absolute",
           bottom: 0,
           left: 0,
           right: 0,
-          width: "100%", // Explicit width for iOS Safari
-          display: "block", // Ensure proper layout context
-          boxSizing: "border-box", // Include padding in width calculation
-          borderRadius: 1,
-          background:
-            "linear-gradient(to top, rgba(26, 21, 34, 0.95) 0%, rgba(26, 21, 34, 0.8) 50%, transparent 100%)",
-          WebkitBackgroundImage:
-            "linear-gradient(to top, rgba(26, 21, 34, 0.95) 0%, rgba(26, 21, 34, 0.8) 50%, transparent 100%)", // Webkit prefix for iOS
-          color: "primary.main",
+          zIndex: 2,
           p: 2,
           paddingTop: 4,
         }}
@@ -59,8 +63,11 @@ function ProjectThumbnail({ project }) {
           sx={{
             fontSize: "1rem",
             fontWeight: 500,
-            textShadow: "0 2px 4px rgba(0, 0, 0, 0.8), 0 1px 2px rgba(0, 0, 0, 0.6)",
-            WebkitTextShadow: "0 2px 4px rgba(0, 0, 0, 0.8), 0 1px 2px rgba(0, 0, 0, 0.6)", // Webkit prefix for iOS
+            color: "primary.main",
+            textShadow:
+              "0 2px 4px rgba(0, 0, 0, 0.8), 0 1px 2px rgba(0, 0, 0, 0.6)",
+            WebkitTextShadow:
+              "0 2px 4px rgba(0, 0, 0, 0.8), 0 1px 2px rgba(0, 0, 0, 0.6)",
           }}
         >
           {project.title}
