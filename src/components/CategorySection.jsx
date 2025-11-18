@@ -86,10 +86,14 @@ function CategorySection({ category, projects }) {
                 key={project.id}
                 sx={{
                   flex: `0 0 ${slideWidth}px`,
-                  transition: "box-shadow 0.3s ease",
+                  transform: "translateZ(0)", // GPU acceleration for Safari/iOS
+                  transition: "box-shadow 0.3s ease, transform 0.3s ease",
                   borderRadius: 2,
+                  WebkitBoxShadow: "0px 0px 0px 0px transparent", // Webkit prefix for older iOS
                   "&:hover": {
-                    boxShadow: "0 10px 30px rgba(224, 145, 204, 0.3)",
+                    boxShadow: "0px 10px 30px 0px rgba(224, 145, 204, 0.3)", // Explicit units for Safari
+                    WebkitBoxShadow: "0px 10px 30px 0px rgba(224, 145, 204, 0.3)",
+                    transform: "translateZ(0) translateY(-4px)", // Subtle lift effect
                   },
                 }}
               >
