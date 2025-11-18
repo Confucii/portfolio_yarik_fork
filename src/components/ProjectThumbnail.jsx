@@ -16,6 +16,8 @@ function ProjectThumbnail({ project }) {
         aspectRatio: "1 / 1", // Creates a 1:1 aspect ratio
         textDecoration: "none",
         cursor: "pointer",
+        overflow: "hidden", // Ensures overlay clips properly on iOS
+        borderRadius: 1,
       }}
     >
       {/* Static thumbnail image */}
@@ -39,12 +41,14 @@ function ProjectThumbnail({ project }) {
           bottom: 0,
           left: 0,
           right: 0,
-          borderRadius: 1,
+          borderBottomLeftRadius: 4,
+          borderBottomRightRadius: 4,
           background:
             "linear-gradient(to top, rgba(26, 21, 34, 0.95) 0%, rgba(26, 21, 34, 0.8) 50%, transparent 100%)",
           color: "primary.main",
           p: 2,
           paddingTop: 4,
+          WebkitTransform: "translateZ(0)", // Force GPU acceleration on iOS
         }}
       >
         <Typography

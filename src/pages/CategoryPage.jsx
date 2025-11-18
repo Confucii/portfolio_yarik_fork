@@ -323,7 +323,7 @@ function CategoryPage() {
                   onClick={handlePrevious}
                   sx={{
                     position: "absolute",
-                    left: 8,
+                    left: { xs: 16, sm: 8 },
                     color: "primary.main",
                   }}
                 >
@@ -351,7 +351,7 @@ function CategoryPage() {
                   onClick={handleNext}
                   sx={{
                     position: "absolute",
-                    right: 8,
+                    right: { xs: 16, sm: 8 },
                     color: "primary.main",
                   }}
                 >
