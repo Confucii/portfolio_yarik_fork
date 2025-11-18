@@ -61,7 +61,7 @@ function CategoryPage() {
         // Small delay to ensure content is rendered
         setTimeout(() => {
           element.scrollIntoView({ behavior: "smooth", block: "start" });
-        }, 100);
+        }, 400);
       }
     }
   }, [location.hash, loading]);
