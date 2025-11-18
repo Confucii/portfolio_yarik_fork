@@ -91,8 +91,8 @@ function CategorySection({ category, projects }) {
                   borderRadius: 2,
                   WebkitBoxShadow: "0px 0px 0px 0px transparent", // Webkit prefix for older iOS
                   "&:hover": {
-                    boxShadow: "0px 10px 30px 0px rgba(224, 145, 204, 0.3)", // Explicit units for Safari
-                    WebkitBoxShadow: "0px 10px 30px 0px rgba(224, 145, 204, 0.3)",
+                    boxShadow: "0px 10px 30px 0px rgba(251, 109, 72, 0.3)", // Orange shadow
+                    WebkitBoxShadow: "0px 10px 30px 0px rgba(251, 109, 72, 0.3)",
                   },
                 }}
               >
